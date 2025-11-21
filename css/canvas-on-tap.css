@@ -77,6 +77,11 @@ li {
   margin: 0 0 1rem;
 }
 
+/* override for header paragraphs */
+header p {
+  text-align: center;
+}
+
 a {
   color: var(--green);
   text-decoration-color: var(--gold);
