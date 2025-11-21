@@ -1,0 +1,211 @@
+/* ===========================
+   Canvas on Tap – Global Styles
+   =========================== */
+
+:root {
+  --green: #234F38;
+  --gold: #C2A95D;
+  --offwhite: #F8F8F5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--offwhite);
+  color: var(--green);
+  line-height: 1.6;
+}
+
+/* ===========================
+   Layout
+   =========================== */
+
+header {
+  background-color: var(--green);
+  color: var(--offwhite);
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: var(--gold);
+}
+
+main {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+}
+
+/* Home page layout */
+body.home main {
+  text-align: center;
+}
+
+/* Footer */
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 4rem;
+}
+
+/* ===========================
+   Typography
+   =========================== */
+
+p,
+li {
+  font-size: 1.05rem;
+  text-align: left;
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--green);
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+/* ===========================
+   Buttons / CTAs
+   =========================== */
+
+a.button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  margin-right: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--gold);
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+a.button:hover {
+  background-color: #b3974f;
+  transform: translateY(-1px);
+}
+
+/* ===========================
+   Blog Post Styles
+   =========================== */
+
+article h1,
+article h2,
+article h3 {
+  color: var(--green);
+  margin-top: 2rem;
+  text-align: left;
+}
+
+article h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+article h2 {
+  font-size: 1.6rem;
+}
+
+article h3 {
+  font-size: 1.3rem;
+}
+
+.post-meta {
+  color: #6a6a6a;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+article img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  display: block;
+}
+
+/* ===========================
+   Code + Syntax Highlighting
+   =========================== */
+
+pre {
+  background: #1d1f21;
+  color: #f8f8f2;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+code {
+  background: #ecebe8;
+  color: var(--green); /* you changed from background → color so text shows */
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Optional lightweight inline syntax highlighting */
+code .keyword {
+  color: var(--gold);
+}
+
+code .string {
+  color: #d87e4a; /* warm orange */
+}
+
+code .comment {
+  color: #7c7c7c;
+  font-style: italic;
+}
+
+code .number {
+  color: #8fa876; /* muted green */
+}
+
+/* ===========================
+   Callouts
+   =========================== */
+
+.callout {
+  background: #fffdf5;
+  border-left: 4px solid var(--gold);
+  padding: 1rem 1.25rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+}
+
+/* ===========================
+   Utility Classes
+   =========================== */
+
+.text-center {
+  text-align: center;
+}
