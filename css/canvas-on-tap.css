@@ -211,6 +211,43 @@ code .number {
 /* ===========================
    Utility Classes
    =========================== */
+/* Better blockquotes – matches warning/callout feel */
+blockquote {
+  background: #fffdf5;                /* very light warm off-white */
+  border-left: 4px solid var(--gold); /* gold accent bar */
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0 2rem;
+  border-radius: 4px;
+  color: var(--green);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Make nested headings in blockquotes feel natural */
+blockquote h3,
+blockquote h4 {
+  margin-top: 0.8rem;
+  margin-bottom: 0.6rem;
+  color: var(--green);
+}
+
+/* Optional: subtle horizontal rule styling */
+hr {
+  border: none;
+  border-top: 1px solid #d0d0c0;
+  margin: 2.5rem 0;
+}
+
+/* If you ever add .callout class manually (future-proof) */
+.callout {
+  background: #fffdf5;
+  border-left: 4px solid var(--gold);
+  padding: 1rem 1.25rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+}
 
 .text-center {
   text-align: center;
