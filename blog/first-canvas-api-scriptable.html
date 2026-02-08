@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Canvas Work for You: Your First API Call with Scriptable | Canvas On Tap</title>
+  <meta name="description" content="A beginner-friendly guide to your first Canvas LMS API call using Scriptable on iPad. Learn the 'Tap Method' with pure JavaScript—no complex setups.">
+  <link rel="stylesheet" href="styles.css">  <!-- your existing CSS -->
+</head>
+<body>
+  <header>
+    <h1>Canvas On Tap</h1>
+    <p>Automating Canvas LMS with iPad magic</p>
+  </header>
+
+  <main>
+    <article>
+      <h1>Make Canvas Work for You: Your First API Call with Scriptable</h1>
+      <div class="post-meta">Published: 2026-02-08</div>
+      <h1 id="make-canvas-work-for-you-your-first-api-call-with-scriptable">Make Canvas Work for You: Your First API Call with Scriptable</h1>
+<p>If you have spent any time working in the Canvas LMS, you probably consider the user experience to be fairly straightforward and intuitive. Most teachers I work with say that ease of use is one of the best things about the platform. However, we can probably all agree that there are things we wish were easier to accomplish without having multiple screens or tabs open.</p>
+<p>This post is the start of what is hopefully a game-changing journey in how you use the LMS. The catalyst? <strong>Canvas's own API.</strong> The goal is to make Canvas work <em>for</em> you instead of the other way around. </p>
+<h3 id="the-pitch-canvas-lms--ipad--scriptable">The Pitch: Canvas LMS + iPad + Scriptable</h3>
+<p>No difficult setups or complex installs. With a little bit of JavaScript, you can begin working with Canvas directly at the source. Together, we will begin automating tasks, creating content, and simplifying those tedious experiences. </p>
+<p>But first, let’s make our first API call. The script in this post follows what I call <strong>"The Tap Method."</strong> It gives us a simple framework to work with: </p>
+<ul>
+<li><strong>Load</strong>: Setting the stage. This is where we add our login credentials and "address" for Canvas.</li>
+<li><strong>Tap</strong>: Making the connection. Here you build a request to "Tap In" to the Canvas API.</li>
+<li><strong>Process</strong>: Reading the mail. You will receive a JSON response; this is where we tell our script what to do with that info.</li>
+</ul>
+<hr />
+<h2 id="how-do-i-access-the-api">How do I access the API?</h2>
+<p>Before we can write a script, you need an <strong>Access Token</strong>. Think of this as a special key that lets your script act on your behalf.</p>
+<blockquote>
+  <h3 id="security-warning">Security Warning</h3>
+  <p>Do not share this token with anyone. It is exactly like your password—anyone with this token has the same access to your Canvas account that you do. </p>
+</blockquote>
+<h3 id="steps-to-getting-your-access-token">Steps to Getting Your Access Token</h3>
+<ol>
+<li><strong>Login to Canvas</strong> on a web browser.</li>
+<li><strong>Access your Account Settings</strong>: Click <strong>Account</strong> in the Global Navigation, then click <strong>Settings</strong>.</li>
+<li><strong>Scroll to "Approved Integrations"</strong> near the bottom.</li>
+<li><strong>Click + New Access Token</strong>.</li>
+<li><strong>Fill in details</strong>: For "Purpose," I recommend "API Scripting." For safety, you may also consider adding an expiration date.</li>
+<li><strong>Generate and Copy</strong>: Once you close the window, you cannot see the token again. <strong>Securely store it immediately.</strong></li>
+</ol>
+<hr />
+<h2 id="writing-your-first-script-using-the-tap-method">Writing your first script using "The Tap Method"</h2>
+<p>Open the <strong>Scriptable app</strong> on your iPad or iPhone, create a new script, and let’s get to work.</p>
+<h3 id="1-load-your-credentials">1. Load your credentials</h3>
+<p>First, we assign <strong>variables</strong>. This keeps our sensitive info in one place and makes the code easier to read.</p>
+<pre><code class="javascript language-javascript">const baseUrl = "https://yourdomain.instructure.com/api/v1";
+const apiToken = "&lt;your-token-here&gt;";
+</code></pre>
+<h3 id="2-tap-in-by-building-a-request">2. Tap in by building a request</h3>
+<p>Now we build the "envelope" that carries our request to Canvas.</p>
+<blockquote>
+  <p>Backtick Alert - In the code below, we use backticks (` `) found under the escape key on a keyboard, NOT standard apostrophes. This allows us to use ${baseUrl} to inject our school's URL directly into the string.</p>
+</blockquote>
+<pre><code class="javascript language-javascript">// Build the specific "address" for your profile
+const url = `${baseUrl}/users/self/profile`;
+
+// Open a new request
+const request = new Request(url);
+
+// Set your method - "GET" means we are asking for information
+request.method = "GET";
+
+// Set your headers (Your digital handshake)
+request.headers = {
+    "Authorization": `Bearer ${apiToken}`,
+    "Content-Type": "application/json" 
+}
+</code></pre>
+<h3 id="3-process-the-response">3. Process the response</h3>
+<p>Finally, we tell Scriptable to send the request and show us what it found.</p>
+<pre><code class="javascript language-javascript">// The 'await' keyword tells the script: "Wait until the internet finishes loading!"
+const response = await request.loadJSON();
+
+// Log the response to the console to see the results
+console.log(response);
+</code></pre>
+<h2 id="there-it-is-your-first-api-request">There it is, your first API request!</h2>
+<h3 id="why-did-you-show-me-this-">Why did you show me this? :)</h3>
+<p>Everything in Canvas is driven by IDs and data points. While a GET request might seem like a lot of work just to see your own profile (which you can see easily in the app), this is the foundation.</p>
+<p>Once you can "Tap" into your profile, you can "Tap" into your gradebook, your assignment lists, and your student rosters. I promise, as we progress, we will connect the dots between these simple lookups and the automation scripts that will save you hours of energy.</p>
+<blockquote>
+  <h2 id="stay-tuned">Stay tuned</h2>
+  <p>In our next mini-post, we’re going to tackle a crucial step: <strong><em>Security</em></strong>. I’ll show you how to move your API token and url out of your code and into the <strong><em>iOS Keychain</em></strong>.</p>
+</blockquote>
+    </article>
+  </main>
+
+  <footer>© Canvas On Tap</footer>
+</body>
+</html>
