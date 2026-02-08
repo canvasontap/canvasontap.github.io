@@ -195,6 +195,21 @@ code .comment {
 code .number {
   color: #8fa876; /* muted green */
 }
+/* Fix light background leaking into code blocks */
+pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Optional: nicer inline code without clashing */
+:not(pre) > code {
+  background: #ecebe8;
+  color: var(--green);
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+}
 
 /* ===========================
    Callouts
