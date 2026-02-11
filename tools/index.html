@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tools | Canvas on Tap</title>
+  <link rel="icon" href="/favicon-32x32.png" type="image/png">
+  <link rel="apple-touch-icon" href="/canvas-on-tap/apple-touch-icon.png" sizes="180x180">
+  <link rel="stylesheet" href="/css/canvas-on-tap.css">
+</head>
+
+<body>
+  <!-- Nav -->
+  <div style="background: var(--offwhite); border-bottom: 1px solid #d0d0c0;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0.9rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+      <a href="/" style="display:flex; align-items:center; gap:0.6rem; text-decoration:none;">
+        <span style="font-weight: 800; letter-spacing: 0.4px;">Canvas on Tap</span>
+      </a>
+
+      <nav style="display:flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
+        <a href="/blog/" style="text-decoration:none;">Blog</a>
+        <a href="/tools/" style="text-decoration:none;">Tools</a>
+        <a href="/about/" style="text-decoration:none;">About</a>
+        <a href="https://www.youtube.com/@canvasontap" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">YouTube</a>
+      </nav>
+    </div>
+  </div>
+
+  <header>
+    <h1>Tools</h1>
+    <p>Copy/paste helpers and Scriptable-ready snippets</p>
+  </header>
+
+  <main>
+    <p class="text-center" style="max-width: 48rem; margin-left:auto; margin-right:auto;">
+      Tools are designed to be small, focused, and immediately useful. Copy the code, run it, and adapt it to your workflow.
+    </p>
+
+    <div class="callout">
+      <p><strong>Most popular:</strong> Save your Canvas API credentials securely with the Keychain setup script.</p>
+      <div class="text-center">
+        <a class="button" href="/tools/scriptable-keychain-setup.html" style="margin-top:0;">Keychain Setup Script</a>
+      </div>
+    </div>
+
+    <hr />
+
+    <h2>Featured tools</h2>
+
+    <section style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+      <div style="background:#fff; border:1px solid #d0d0c0; border-radius:10px; padding: 1.25rem;">
+        <h3 style="margin-top:0;">
+          <a href="/tools/scriptable-keychain-setup.html">Scriptable Keychain Setup Script</a>
+        </h3>
+        <p>Prompt for a key name + secret value and save it securely in Scriptable Keychain.</p>
+        <p class="post-meta" style="margin-bottom:0;">Updated: February 11, 2026</p>
+      </div>
+
+      <div style="background:#fff; border:1px solid #d0d0c0; border-radius:10px; padding: 1.25rem;">
+        <h3 style="margin-top:0;">More tools coming soon</h3>
+        <p>Request helpers, templates, and small utilities for Canvas automation workflows.</p>
+        <p class="post-meta" style="margin-bottom:0;">Want something specific? Ask on LinkedIn.</p>
+      </div>
+    </section>
+
+    <hr />
+
+    <h2>What you’ll find here</h2>
+    <ul>
+      <li>Scriptable prompts and helpers (alerts, menus, input flows)</li>
+      <li>Canvas API request patterns (GET/POST/PUT/DELETE)</li>
+      <li>Reusable utilities (pagination, logging, CSV output)</li>
+      <li>Templates for safer scripts (Keychain, config, headers)</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Prefer step-by-step?</strong> Many tools have a matching blog post explaining how and why they work.</p>
+      <div class="text-center">
+        <a class="button" href="/blog/" style="margin-top:0;">Read the Blog</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Canvas on Tap · Made with ☕ and Scriptable
+  </footer>
+
+  <style>
+    @media (max-width: 860px) {
+      section[style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</body>
+</html>
