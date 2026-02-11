@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scriptable Keychain Setup Script | Canvas on Tap</title>
+
+  <link rel="stylesheet" href="/css/canvas-on-tap.css" />
+</head>
+
+<body>
+
+  <main class="cot-page">
+    <!-- HERO -->
+    <section class="cot-hero">
+      <div class="cot-container">
+        <div class="cot-hero__inner">
+          <div class="cot-badge">Free Tool</div>
+          <h1 class="cot-hero__title">Scriptable Keychain Setup Script</h1>
+          <p class="cot-hero__subtitle">
+            Save API tokens, base URLs, and other secrets securely in Scriptable’s Keychain—so you can reuse scripts without hardcoding sensitive values.
+          </p>
+
+          <div class="cot-hero__actions">
+            <a class="cot-btn cot-btn--primary" href="#copy">Copy the Script</a>
+            <a class="cot-btn cot-btn--ghost" href="#how">How it Works</a>
+          </div>
+
+          <p class="cot-hero__note">
+            Tip: This belongs under <strong>Tools</strong> (and can also be tagged as <strong>Scriptable</strong>).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="cot-section" id="how">
+      <div class="cot-container">
+
+        <div class="cot-grid">
+          <!-- LEFT: HOW IT WORKS -->
+          <article class="cot-card">
+            <h2 class="cot-card__title">How it Works</h2>
+            <p class="cot-card__text">
+              Run the script in Scriptable, enter a <strong>Key Name</strong> and a <strong>Secret Value</strong>, and it will store the value securely using Scriptable’s Keychain.
+            </p>
+            <ol class="cot-steps">
+              <li><strong>Enter Key Name</strong> (example: <code>canvasApiToken</code>)</li>
+              <li><strong>Enter Secret Value</strong> (example: your API token)</li>
+              <li><strong>Tap Save</strong> to store it securely</li>
+            </ol>
+          </article>
+
+          <!-- RIGHT: RECOMMENDED KEYS -->
+          <aside class="cot-card">
+            <h2 class="cot-card__title">Recommended Key Names</h2>
+            <ul class="cot-list">
+              <li><strong>canvasApiUrl</strong> — Your Canvas base URL</li>
+              <li><strong>canvasApiToken</strong> — Your Canvas API token</li>
+              <li><strong>accountId</strong> — Optional (if your scripts use it)</li>
+            </ul>
+
+            <div class="cot-callout">
+              <p class="cot-callout__title">Security note</p>
+              <p class="cot-callout__text">
+                This script intentionally does <strong>not</strong> print your secret value to the console.
+              </p>
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SCRIPT + COPY -->
+    <section class="cot-section" id="copy">
+      <div class="cot-container">
+
+        <div class="cot-card cot-card--wide">
+          <div class="cot-card__header">
+            <div>
+              <h2 class="cot-card__title">Copy + Paste Script</h2>
+              <p class="cot-card__text">Use the button to copy the entire script to your clipboard.</p>
+            </div>
+
+            <div class="cot-card__headerActions">
+              <button id="copyBtn" class="cot-btn cot-btn--primary" type="button">
+                Copy Script
+              </button>
+            </div>
+          </div>
+
+          <p id="copyStatus" class="cot-status" aria-live="polite"></p>
+
+          <pre class="cot-code"><code id="scriptBlock">// ------------------------------------------------------------
+// Scriptable Keychain Helper
+// Canvas on Tap Freebie Script
+// ------------------------------------------------------------
+// This script prompts the user for a Keychain key name and value,
+// then securely stores the value using Scriptable's Keychain API.
+//
+// Example use cases:
+// - Storing an API token
+// - Saving a Canvas API URL
+// - Saving a personal access key
+//
+// Notes:
+// - Keychain values are stored securely on the device.
+// - If the key already exists, this script will overwrite it.
+// ------------------------------------------------------------
+
+const keychainAlert = new Alert();
+keychainAlert.title = "Save Keychain Secret";
+keychainAlert.message =
+  "Enter a key name and a secret value to store securely in Scriptable's Keychain.";
+
+// Input fields
+keychainAlert.addTextField("Key Name (example: canvasApiToken)", "");
+keychainAlert.addTextField("Secret Value (example: 123abc...)", "");
+
+// Buttons
+keychainAlert.addAction("Save Secret");
+keychainAlert.addCancelAction("Cancel");
+
+// Show alert
+const buttonIndex = await keychainAlert.present();
+
+// If user cancels, Scriptable returns -1
+if (buttonIndex === -1) {
+  console.log("Cancelled. No Keychain value was saved.");
+  Script.complete();
+}
+
+// Get user input
+const secretKeyName = keychainAlert.textFieldValue(0).trim();
+const secretValue = keychainAlert.textFieldValue(1).trim();
+
+// Validate input
+if (!secretKeyName || !secretValue) {
+  console.log("Error: Both the key name and secret value are required.");
+  Script.complete();
+}
+
+// Save to Scriptable Keychain
+Keychain.set(secretKeyName, secretValue);
+
+// Confirmation output (DO NOT print secretValue for security)
+console.log("Saved Keychain value successfully.");
+console.log(`Key Name: ${secretKeyName}`);
+</code></pre>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEXT STEP -->
+    <section class="cot-section">
+      <div class="cot-container">
+
+        <div class="cot-card">
+          <h2 class="cot-card__title">Next Step: Use Your Saved Secret</h2>
+          <p class="cot-card__text">
+            After you save a value (example: <code>canvasApiToken</code>), you can retrieve it in any script like this:
+          </p>
+
+          <pre class="cot-code"><code>const token = Keychain.get("canvasApiToken");
+// Use token in your request headers
+</code></pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER NOTE -->
+    <section class="cot-section cot-section--tight">
+      <div class="cot-container">
+        <p class="cot-footerNote">
+          Want more Scriptable + Canvas API helpers? Browse the <a href="/tools">Tools</a> section or follow <strong>Canvas on Tap</strong>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const copyBtn = document.getElementById("copyBtn");
+    const scriptBlock = document.getElementById("scriptBlock");
+    const copyStatus = document.getElementById("copyStatus");
+
+    function setStatus(message, type) {
+      copyStatus.textContent = message;
+      copyStatus.setAttribute("data-status", type);
+      window.clearTimeout(copyStatus._t);
+      copyStatus._t = window.setTimeout(() => {
+        copyStatus.textContent = "";
+        copyStatus.removeAttribute("data-status");
+      }, 2500);
+    }
+
+    copyBtn.addEventListener("click", async () => {
+      const scriptText = scriptBlock.innerText;
+
+      try {
+        await navigator.clipboard.writeText(scriptText);
+        setStatus("✅ Script copied to clipboard!", "success");
+      } catch (err) {
+        // Fallback for environments where Clipboard API is blocked
+        try {
+          const textarea = document.createElement("textarea");
+          textarea.value = scriptText;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "absolute";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textarea);
+          setStatus("✅ Script copied to clipboard!", "success");
+        } catch (e2) {
+          setStatus("❌ Unable to copy. Select the code and copy manually.", "error");
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
