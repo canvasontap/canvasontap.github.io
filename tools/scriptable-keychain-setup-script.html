@@ -4,95 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scriptable Keychain Setup Script | Canvas on Tap</title>
-
   <link rel="stylesheet" href="/css/canvas-on-tap.css" />
 </head>
 
 <body>
+  <header>
+    <h1>Scriptable Keychain Setup Script</h1>
+    <p>A simple helper for saving secrets securely in Scriptable</p>
+    <a class="button" href="#script">Jump to Script</a>
+    <a class="button" href="#next">Next Step</a>
+  </header>
 
-  <main class="cot-page">
-    <!-- HERO -->
-    <section class="cot-hero">
-      <div class="cot-container">
-        <div class="cot-hero__inner">
-          <div class="cot-badge">Free Tool</div>
-          <h1 class="cot-hero__title">Scriptable Keychain Setup Script</h1>
-          <p class="cot-hero__subtitle">
-            Save API tokens, base URLs, and other secrets securely in Scriptable’s Keychain—so you can reuse scripts without hardcoding sensitive values.
-          </p>
+  <main>
+    <article>
+      <h2 id="how">How it works</h2>
+      <p>
+        This Scriptable helper prompts you for a <strong>Key Name</strong> and a <strong>Secret Value</strong>,
+        then stores the value securely using Scriptable’s <strong>Keychain</strong>.
+        It’s perfect for Canvas API workflows where you don’t want tokens hardcoded into your scripts.
+      </p>
 
-          <div class="cot-hero__actions">
-            <a class="cot-btn cot-btn--primary" href="#copy">Copy the Script</a>
-            <a class="cot-btn cot-btn--ghost" href="#how">How it Works</a>
-          </div>
-
-          <p class="cot-hero__note">
-            Tip: This belongs under <strong>Tools</strong> (and can also be tagged as <strong>Scriptable</strong>).
-          </p>
-        </div>
+      <div class="callout">
+        <p><strong>Security note:</strong> This script does <em>not</em> print your secret value to the console.</p>
       </div>
-    </section>
 
-    <!-- CONTENT -->
-    <section class="cot-section" id="how">
-      <div class="cot-container">
+      <h2>Recommended key names</h2>
+      <ul>
+        <li><strong>canvasApiUrl</strong> — Your Canvas base URL</li>
+        <li><strong>canvasApiToken</strong> — Your Canvas API token</li>
+        <li><strong>accountId</strong> — Optional, if your scripts use it</li>
+      </ul>
 
-        <div class="cot-grid">
-          <!-- LEFT: HOW IT WORKS -->
-          <article class="cot-card">
-            <h2 class="cot-card__title">How it Works</h2>
-            <p class="cot-card__text">
-              Run the script in Scriptable, enter a <strong>Key Name</strong> and a <strong>Secret Value</strong>, and it will store the value securely using Scriptable’s Keychain.
-            </p>
-            <ol class="cot-steps">
-              <li><strong>Enter Key Name</strong> (example: <code>canvasApiToken</code>)</li>
-              <li><strong>Enter Secret Value</strong> (example: your API token)</li>
-              <li><strong>Tap Save</strong> to store it securely</li>
-            </ol>
-          </article>
+      <hr />
 
-          <!-- RIGHT: RECOMMENDED KEYS -->
-          <aside class="cot-card">
-            <h2 class="cot-card__title">Recommended Key Names</h2>
-            <ul class="cot-list">
-              <li><strong>canvasApiUrl</strong> — Your Canvas base URL</li>
-              <li><strong>canvasApiToken</strong> — Your Canvas API token</li>
-              <li><strong>accountId</strong> — Optional (if your scripts use it)</li>
-            </ul>
+      <h2 id="script">Copy + paste script</h2>
+      <p>
+        Click the button to copy the entire script. Then paste it into Scriptable and run it once to save your values.
+      </p>
 
-            <div class="cot-callout">
-              <p class="cot-callout__title">Security note</p>
-              <p class="cot-callout__text">
-                This script intentionally does <strong>not</strong> print your secret value to the console.
-              </p>
-            </div>
-          </aside>
-        </div>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+        <p id="copyStatus" style="margin:0; font-weight:600;"></p>
 
+        <button
+          id="copyBtn"
+          type="button"
+          style="
+            display:inline-block;
+            padding:0.75rem 1.5rem;
+            background-color: var(--gold);
+            color: var(--green);
+            font-weight: bold;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+          "
+        >
+          Copy Script
+        </button>
       </div>
-    </section>
 
-    <!-- SCRIPT + COPY -->
-    <section class="cot-section" id="copy">
-      <div class="cot-container">
-
-        <div class="cot-card cot-card--wide">
-          <div class="cot-card__header">
-            <div>
-              <h2 class="cot-card__title">Copy + Paste Script</h2>
-              <p class="cot-card__text">Use the button to copy the entire script to your clipboard.</p>
-            </div>
-
-            <div class="cot-card__headerActions">
-              <button id="copyBtn" class="cot-btn cot-btn--primary" type="button">
-                Copy Script
-              </button>
-            </div>
-          </div>
-
-          <p id="copyStatus" class="cot-status" aria-live="polite"></p>
-
-          <pre class="cot-code"><code id="scriptBlock">// ------------------------------------------------------------
+      <pre><code id="scriptBlock">// ------------------------------------------------------------
 // Scriptable Keychain Helper
 // Canvas on Tap Freebie Script
 // ------------------------------------------------------------
@@ -149,62 +121,66 @@ console.log("Saved Keychain value successfully.");
 console.log(`Key Name: ${secretKeyName}`);
 </code></pre>
 
-        </div>
+      <hr />
 
-      </div>
-    </section>
+      <h2 id="next">Next step: use your saved secret</h2>
+      <p>
+        Once you’ve saved a value (example: <code>canvasApiToken</code>), you can retrieve it in any script like this:
+      </p>
 
-    <!-- NEXT STEP -->
-    <section class="cot-section">
-      <div class="cot-container">
+      <pre><code>const token = Keychain.get("canvasApiToken");
+// Use token in your request headers</code></pre>
 
-        <div class="cot-card">
-          <h2 class="cot-card__title">Next Step: Use Your Saved Secret</h2>
-          <p class="cot-card__text">
-            After you save a value (example: <code>canvasApiToken</code>), you can retrieve it in any script like this:
-          </p>
-
-          <pre class="cot-code"><code>const token = Keychain.get("canvasApiToken");
-// Use token in your request headers
-</code></pre>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FOOTER NOTE -->
-    <section class="cot-section cot-section--tight">
-      <div class="cot-container">
-        <p class="cot-footerNote">
-          Want more Scriptable + Canvas API helpers? Browse the <a href="/tools">Tools</a> section or follow <strong>Canvas on Tap</strong>.
+      <div class="callout">
+        <p>
+          If you’re building a reusable <strong>makeRequest</strong> helper, pull your token once at the top of the script
+          and reuse it across calls.
         </p>
       </div>
-    </section>
+    </article>
   </main>
+
+  <footer>
+    © Canvas on Tap — Free tools for Scriptable + Canvas API workflows
+  </footer>
 
   <script>
     const copyBtn = document.getElementById("copyBtn");
     const scriptBlock = document.getElementById("scriptBlock");
     const copyStatus = document.getElementById("copyStatus");
 
-    function setStatus(message, type) {
+    function setStatus(message, isError = false) {
       copyStatus.textContent = message;
-      copyStatus.setAttribute("data-status", type);
+      copyStatus.style.color = isError ? "#8b0000" : "inherit";
       window.clearTimeout(copyStatus._t);
       copyStatus._t = window.setTimeout(() => {
         copyStatus.textContent = "";
-        copyStatus.removeAttribute("data-status");
+        copyStatus.style.color = "inherit";
       }, 2500);
     }
+
+    copyBtn.addEventListener("mouseenter", () => {
+      copyBtn.style.backgroundColor = "#b3974f";
+    });
+    copyBtn.addEventListener("mouseleave", () => {
+      copyBtn.style.backgroundColor = "var(--gold)";
+      copyBtn.style.transform = "translateY(0)";
+    });
+    copyBtn.addEventListener("mousedown", () => {
+      copyBtn.style.transform = "translateY(-1px)";
+    });
+    copyBtn.addEventListener("mouseup", () => {
+      copyBtn.style.transform = "translateY(0)";
+    });
 
     copyBtn.addEventListener("click", async () => {
       const scriptText = scriptBlock.innerText;
 
       try {
         await navigator.clipboard.writeText(scriptText);
-        setStatus("✅ Script copied to clipboard!", "success");
+        setStatus("✅ Script copied to clipboard!");
       } catch (err) {
-        // Fallback for environments where Clipboard API is blocked
+        // Fallback if Clipboard API is blocked
         try {
           const textarea = document.createElement("textarea");
           textarea.value = scriptText;
@@ -215,13 +191,12 @@ console.log(`Key Name: ${secretKeyName}`);
           textarea.select();
           document.execCommand("copy");
           document.body.removeChild(textarea);
-          setStatus("✅ Script copied to clipboard!", "success");
+          setStatus("✅ Script copied to clipboard!");
         } catch (e2) {
-          setStatus("❌ Unable to copy. Select the code and copy manually.", "error");
+          setStatus("❌ Unable to copy. Select the code and copy manually.", true);
         }
       }
     });
   </script>
-
 </body>
 </html>
