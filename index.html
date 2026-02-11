@@ -8,51 +8,142 @@
   <link rel="apple-touch-icon" href="/canvas-on-tap/apple-touch-icon.png" sizes="180x180">
   <link rel="stylesheet" href="/css/canvas-on-tap.css">
 </head>
+
 <body class="home">
-  <header>
-    <h1>Canvas on Tap</h1>
-    <p>Scripting and Automation for Canvas LMS</p>
+
+  <!-- Top Navigation -->
+  <div style="background: var(--offwhite); border-bottom: 1px solid #d0d0c0;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0.9rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem;">
+      <a href="/" style="display:flex; align-items:center; gap:0.6rem; text-decoration:none;">
+        <span style="font-weight: 800; letter-spacing: 0.4px;">Canvas on Tap</span>
+      </a>
+
+      <nav style="display:flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-end;">
+        <a href="/blog/" style="text-decoration:none;">Blog</a>
+        <a href="/tools/" style="text-decoration:none;">Tools</a>
+        <a href="/about/" style="text-decoration:none;">About</a>
+        <a href="https://www.youtube.com/@canvasontap" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">YouTube</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header style="padding: 2.75rem 2rem;">
+    <h1 style="margin:0; font-size: 2.6rem;">Canvas on Tap</h1>
+    <p style="margin-top: 0.75rem; max-width: 42rem; margin-left:auto; margin-right:auto;">
+      Scripting and automation for Canvas LMS — with a practical focus on Scriptable, iPad workflows, and simple tools that save time.
+    </p>
+
+    <div style="margin-top: 1.25rem;">
+      <a class="button" href="/tools/">Browse Tools</a>
+      <a class="button" href="/blog/">Read the Blog</a>
+    </div>
   </header>
 
   <main>
-    <p class="text-center">
-      Welcome to Canvas on Tap! This project is all about simplifying Canvas workflows through scripting,
-      automation, and smart tooling — especially with iPad and Scriptable support.
-    </p>
 
-          <h3>Latest Post</h3>
-    <article class="post-teaser">
-    <h4>
-      <a href="/blog/secure-your-script.html">
-        Secure your Script: Protecting your API Credentials with iOS Keychain
-      </a>
-    </h4>
-    <p class="post-meta">February 10, 2026</p>
-    <p>A guide to saving your base URL and API token in the iOS Keychain.</p>
-  </article>
-  <article class="post-teaser">
-    <h4>
-      <a href="/blog/first-canvas-api-scriptable.html">
-        Make Canvas Work for You: Your First API Call with Scriptable
-      </a>
-    </h4>
-    <p class="post-meta">February 8, 2026</p>
-    <p>A beginner-friendly intro to Canvas API using Scriptable on iPad. Learn the "Tap Method" with pure JavaScript.</p>
-  </article>
-    
-    <div class="text-center">
-      <a class="button" href="https://www.youtube.com/@canvasontap" target="_blank" rel="noopener noreferrer">
-        Visit YouTube Channel
-      </a>
-      <a class="button" href="https://www.linkedin.com/company/canvas-on-tap" target="_blank" rel="noopener noreferrer">
-        LinkedIn
-      </a>
-    </div>
+    <!-- Quick intro / mission -->
+    <section style="margin-bottom: 2rem;">
+      <p class="text-center" style="max-width: 48rem; margin-left:auto; margin-right:auto;">
+        If you’ve ever thought “I wish Canvas would just do this for me,” you’re in the right place.
+        Canvas on Tap is about small scripts, repeatable patterns, and real workflows — not overcomplicated solutions.
+      </p>
+    </section>
+
+    <!-- 3-up Feature Cards -->
+    <section style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.25rem;">
+      <!-- Blog card -->
+      <div style="background:#fff; border:1px solid #d0d0c0; border-radius: 10px; padding: 1.25rem;">
+        <h3 style="margin-top:0;">Blog</h3>
+        <p style="margin-bottom:1rem;">
+          Practical guides for Scriptable + Canvas API, written for real people building real workflows.
+        </p>
+        <a class="button" href="/blog/" style="margin-top:0;">Explore Posts</a>
+      </div>
+
+      <!-- Tools card -->
+      <div style="background:#fff; border:1px solid #d0d0c0; border-radius: 10px; padding: 1.25rem;">
+        <h3 style="margin-top:0;">Tools</h3>
+        <p style="margin-bottom:1rem;">
+          Copy/paste helpers, templates, and ready-to-use snippets you can drop into your scripts today.
+        </p>
+        <a class="button" href="/tools/" style="margin-top:0;">View Tools</a>
+      </div>
+
+      <!-- About card -->
+      <div style="background:#fff; border:1px solid #d0d0c0; border-radius: 10px; padding: 1.25rem;">
+        <h3 style="margin-top:0;">About</h3>
+        <p style="margin-bottom:1rem;">
+          The story behind Canvas on Tap — and the “why” behind making automation approachable.
+        </p>
+        <a class="button" href="/about/" style="margin-top:0;">Meet Will</a>
+      </div>
+    </section>
+
+    <!-- Latest -->
+    <section style="margin-bottom: 2.25rem;">
+      <div style="display:flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+        <h2 style="margin:0;">Latest from the blog</h2>
+        <a href="/blog/">View all posts →</a>
+      </div>
+
+      <div style="margin-top: 1rem; display:grid; grid-template-columns: 1fr; gap: 1rem;">
+        <article class="post-teaser" style="background:#fff; border:1px solid #d0d0c0; border-radius:10px; padding: 1.25rem;">
+          <h4 style="margin:0 0 0.35rem;">
+            <a href="/blog/secure-your-script.html">
+              Secure your Script: Protecting your API Credentials with iOS Keychain
+            </a>
+          </h4>
+          <p class="post-meta" style="margin:0 0 0.75rem;">February 10, 2026</p>
+          <p style="margin:0;">
+            A guide to saving your base URL and API token in the iOS Keychain.
+          </p>
+        </article>
+
+        <article class="post-teaser" style="background:#fff; border:1px solid #d0d0c0; border-radius:10px; padding: 1.25rem;">
+          <h4 style="margin:0 0 0.35rem;">
+            <a href="/blog/first-canvas-api-scriptable.html">
+              Make Canvas Work for You: Your First API Call with Scriptable
+            </a>
+          </h4>
+          <p class="post-meta" style="margin:0 0 0.75rem;">February 8, 2026</p>
+          <p style="margin:0;">
+            A beginner-friendly intro to Canvas API using Scriptable on iPad. Learn the “Tap Method” with pure JavaScript.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Social / follow -->
+    <section class="callout" style="border-radius:10px;">
+      <h3 style="margin-top:0;">Follow along</h3>
+      <p style="margin-bottom:1rem;">
+        New posts, tools, and quick “Tap Tips” — designed to be easy to try, even if you’re not a programmer.
+      </p>
+
+      <div class="text-center">
+        <a class="button" href="https://www.youtube.com/@canvasontap" target="_blank" rel="noopener noreferrer">
+          YouTube
+        </a>
+        <a class="button" href="https://www.linkedin.com/company/canvas-on-tap" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </div>
+    </section>
 
   </main>
 
   <footer>
     &copy; 2026 Canvas on Tap · Made with ☕ and Scriptable
   </footer>
+
+  <!-- Small mobile tweak without touching your main CSS -->
+  <style>
+    @media (max-width: 860px) {
+      main { max-width: 900px; }
+      section[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
 </body>
 </html>
