@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure your Script: Protecting your API Credentials with Keychain | Canvas On Tap</title>
+  <meta name="description" content="A beginner-friendly guide to saving your base URL and api token in the iOS Keychain.">
+  <link rel="stylesheet" href="styles.css">  <!-- your existing CSS -->
+</head>
+<body>
+  <header>
+    <h1>Canvas On Tap</h1>
+    <p>Automating Canvas LMS with iPad magic</p>
+  </header>
+
+  <main>
+    <article>
+      <h1>Secure your Script: Protecting your API Credentials with Keychain</h1>
+      <div class="post-meta">Published: 2026-02-10</div>
+      <p>In the first post, we made our first successful API call to Canvas. To keep things simple and readable, we defined our Canvas URL and API token directly in the script. <strong><em>That choice was intentional.</em></strong></p>
+<p>When you’re learning something new, clarity matters more than perfection. Seeing values defined plainly in the code makes it easier to understand what’s happening and why. But it’s not how we should work long-term.</p>
+<p>Before we go any further, lets secure this important information!</p>
+<h2 id="why-this-matters">Why this matters?</h2>
+<p>Your API token is effectively your Canvas password. It gives you the same access that you have if you went to Canvas in your browser. Viewing student data, creating content, or making changes in your account.</p>
+<p>For our first script it was the simplest path forward to hardcode the token. As you expand your use of the Canvas API this is not only poor practice it can lead to a data breach depending on your access in Canvas. </p>
+<p>We want our automations to be <strong>safe, repeatable, and scalable</strong>, sensitive values need to live outside the script itself.</p>
+<p>On your iPad, the right place for that is the <strong>Keychain</strong>.</p>
+<h2 id="a-quick-note-on-your-base-url">A quick note on your base URL</h2>
+<p>Before we store anything, let’s talk briefly about the baseUrl.</p>
+<p>In my scripts, I intentionally include /api/v1 directly in the base URL:</p>
+<pre><code class="javascript language-javascript">const baseUrl = "https://yourdomain.instructure.com/api/v1"
+</code></pre>
+<p>I do this for two reasons:</p>
+<ol>
+<li>Nearly every Canvas API request uses this same versioned base path</li>
+<li>It keeps endpoint construction consistent and readable</li>
+</ol>
+<p>With <code>/api/v1</code> already in place, the endpoint paths we build later map directly to what you see in Canvas.</p>
+<pre><code class="javascript language-javascript">"/users/self/profile"
+"/courses"
+"/assignments"
+</code></pre>
+<p>This keeps the mental mode simple:</p>
+<ul>
+<li>Base URL  -&gt; where the API lives</li>
+<li>Endpoint  -&gt; the specific resource you're requesting</li>
+</ul>
+<p>Once defined, the base URL rarely changes, which makes it an ideal candidate for your Keychain.</p>
+<h2 id="translating-this-to-your-scriptable-app">Translating this to your Scriptable App</h2>
+<p>Scriptable gives us access to the iOS Keychain, which is designed specifically for storing sensitive values like tokens, passwords, and credentials.</p>
+<p>The first step is to store our existing values.</p>
+<pre><code class="javascript language-javascript">// Store each value using a name (key) and the value we want to protect
+Keychain.set("BASE_URL", baseUrl);
+Keychain.set("API_TOKEN", apiToken);
+</code></pre>
+<p>You only need to do this once. After the values are stored, they persist securely across scripts and sessions.</p>
+<h2 id="a-small-but-important-naming-shift">A small but important naming shift</h2>
+<p>You’ll notice a deliberate change in naming here.</p>
+<p>When values are stored outside the script, I switch to <strong>uppercase variable names</strong> when retrieving them:</p>
+<pre><code class="javascript language-javascript">// Retrieve the stored values by the same names
+const BASE_URL = Keychain.get("BASE_URL");
+const API_TOKEN = Keychain.get("API_TOKEN");
+</code></pre>
+<p>Uppercase names make it immediately clear that:</p>
+<ul>
+<li>These values are not being defined here</li>
+<li>They’re coming from a secure external store</li>
+<li>They should be treated as configuration, not logic</li>
+</ul>
+<p>As scripts grow, that distinction becomes increasingly valuable.</p>
+<h2 id="updating-the-load-step">Updating the Load Step</h2>
+<p>With our credentials secured, the <strong>Load</strong> step of the TAP Method becomes cleaner and safer.</p>
+<p>Instead of defining sensitive values inline, we now load them intentionally:</p>
+<pre><code class="javascript language-javascript">const BASE_URL = Keychain.get("BASE_URL");
+const API_TOKEN = Keychain.get("API_TOKEN");
+</code></pre>
+<p>From here on out, every script can assume your credentials are secure.</p>
+<h2 id="why-we-do-this-now">Why we do this now?</h2>
+<p>This step might feel a little early. After all, we’ve only made one API call so far. That’s <strong><em>exactly</em></strong> why it belongs here.</p>
+<p>Good automation habits are easiest to form at the beginning. By securing credentials early, you avoid having to refactor later, and you build scripts that are safe to reuse, share, and grow.</p>
+<p>With our script secured, we’re ready to move forward.</p>
+<h2 id="whats-next">What's next</h2>
+<p>In the next post, we’ll start putting this foundation to work — using the TAP Method to retrieve real Canvas course data. </p>
+    </article>
+  </main>
+
+  <footer>© Canvas On Tap</footer>
+</body>
+</html>
