@@ -30,9 +30,8 @@
 
       <h2>Recommended key names</h2>
       <ul>
-        <li><strong>canvasApiUrl</strong> — Your Canvas base URL</li>
-        <li><strong>canvasApiToken</strong> — Your Canvas API token</li>
-        <li><strong>accountId</strong> — Optional, if your scripts use it</li>
+        <li><strong>BASE_URL</strong> — Your Canvas base URL</li>
+        <li><strong>API_TOKEN</strong> — Your Canvas API token</li>
       </ul>
 
       <hr />
@@ -87,7 +86,7 @@ keychainAlert.message =
   "Enter a key name and a secret value to store securely in Scriptable's Keychain.";
 
 // Input fields
-keychainAlert.addTextField("Key Name (example: canvasApiToken)", "");
+keychainAlert.addTextField("Key Name (example: API_TOKEN)", "");
 keychainAlert.addTextField("Secret Value (example: 123abc...)", "");
 
 // Buttons
