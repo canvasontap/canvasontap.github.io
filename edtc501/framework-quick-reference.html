@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Framework Quick Reference - EDTC 501</title>
+  <meta name="description" content="Comprehensive guide to backward design, constructive alignment, and instructional design frameworks from Biggs, Wiggins, and McTighe.">
+  <link rel="icon" href="/favicon-32x32.png" type="image/png">
+  <link rel="stylesheet" href="/css/canvas-on-tap.css">
+  
+  <style>
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+    .section { margin-bottom: 3rem; padding-top: 1rem; scroll-margin-top: 2rem; }
+    .section h2 { color: var(--green); border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; }
+    .section h3 { color: var(--green); margin-top: 1.5rem; }
+    
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #fff; font-size: 0.9rem; }
+    thead { background: var(--green); color: var(--offwhite); }
+    th, td { padding: 0.75rem; text-align: left; border: 1px solid #d0d0c0; }
+    tbody tr:nth-child(even) { background: var(--offwhite); }
+    
+    .callout { padding: 1rem 1.25rem; border-radius: 6px; margin: 1.5rem 0; border-left: 4px solid; }
+    .callout-tip { background: #e8f5e9; border-left-color: #4caf50; }
+    .callout strong { display: block; margin-bottom: 0.5rem; }
+    
+    .toc { background: #fff; border: 1px solid #d0d0c0; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem; }
+    .toc h2 { margin-top: 0; font-size: 1.2rem; }
+    .toc ul { column-count: 2; column-gap: 2rem; list-style-position: inside; }
+    .toc li { margin-bottom: 0.5rem; }
+    .toc a { text-decoration: none; color: var(--green); }
+    .toc a:hover { color: var(--gold); }
+    
+    @media (max-width: 768px) { .toc ul { column-count: 1; } }
+    @media print { nav, .no-print { display: none !important; } }
+  </style>
+</head>
+
+<body>
+
+  <div class="no-print" style="background: var(--offwhite); border-bottom: 1px solid #d0d0c0;">
+    <div style="max-width: 900px; margin: 0 auto; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+      <a href="/" style="display:flex; align-items:center; text-decoration:none;">
+        <span style="font-weight: 800;">Canvas on Tap</span>
+      </a>
+      <nav style="display:flex; gap: 1rem; flex-wrap: wrap; font-size: 0.95rem;">
+        <a href="/edtc501/" style="text-decoration:none;">← EDTC 501</a>
+        <a href="#toc" style="text-decoration:none;">Contents</a>
+        <button onclick="window.print()" class="button-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.9rem;">Print</button>
+      </nav>
+    </div>
+  </div>
+
+  <header style="padding: 2rem 1.5rem; background: var(--green); color: var(--offwhite);">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h1 style="margin:0; font-size: 2.2rem;">Framework Quick Reference</h1>
+      <p style="margin-top: 0.5rem; color: var(--gold); font-size: 1.1rem;">Module 4: Designing Aligned Courses</p>
+      <p style="margin-top: 1rem;">Comprehensive guide to backward design, constructive alignment, and diagnostic tools. Use this while completing assignments and designing courses.</p>
+      <div class="no-print" style="margin-top: 1rem;">
+        <a class="button" href="/edtc501/assets/framework-quick-reference.pdf" download style="background: var(--gold); color: var(--green);">Download PDF</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- Table of Contents -->
+    <div class="toc" id="toc">
+      <h2>Table of Contents</h2>
+      <ul>
+        <li><a href="#biggs">1. Biggs' Constructive Alignment</a></li>
+        <li><a href="#backward-design">2. Backward Design</a></li>
+        <li><a href="#whereto">3. WHERETO Elements</a></li>
+        <li><a href="#friction">4. Productive vs. Unproductive Difficulty</a></li>
+        <li><a href="#ai-workflow">5. AI as Design Partner</a></li>
+        <li><a href="#principles">6. Three Design Principles</a></li>
+        <li><a href="#application">Quick Application Guide</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#self-check">Self-Check Questions</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 1: Biggs -->
+    <section class="section" id="biggs">
+      <h2>1. Biggs' Constructive Alignment (2014)</h2>
+      
+      <h3>The Core Idea</h3>
+      <p>Learning outcomes are specified first, and teaching activities and assessments are deliberately designed to support those outcomes. All three components should require the same kind of thinking.</p>
+      
+      <h3>The Coherence Test (Alignment Check)</h3>
+      <p>Ask yourself these three questions:</p>
+      <ol>
+        <li><strong>Can you draw a direct line from your outcome to your assessment?</strong>
+          <ul>
+            <li>Does the assessment measure what the outcome names?</li>
+            <li>Do they require the same cognitive action (analyze, apply, evaluate)?</li>
+          </ul>
+        </li>
+        <li><strong>Can you explain why the activities develop the specific capability the outcome names?</strong>
+          <ul>
+            <li>Do students practice the same kind of thinking they'll be assessed on?</li>
+            <li>Or do activities practice recall while assessment requires analysis?</li>
+          </ul>
+        </li>
+        <li><strong>If a student did the activities perfectly, would they be ready for the assessment?</strong>
+          <ul>
+            <li>If the answer is "maybe" or "not quite," you have an alignment gap.</li>
+          </ul>
+        </li>
+      </ol>
+      
+      <h3>The Three Alignment Gaps</h3>
+      <p>(Based on Dr. Okafor Scenario, Module 4 Page 4)</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Gap Type</th>
+            <th>What It Looks Like</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Outcome Gap</strong></td>
+            <td>The outcome is too vague to guide design ("understand," "know," "be familiar with")</td>
+            <td>"Students will understand research methods" → What does understanding look like?</td>
+          </tr>
+          <tr>
+            <td><strong>Activity Gap</strong></td>
+            <td>Students practice one thing, get assessed on another</td>
+            <td>Students watch lectures and take quizzes (recall) → Final project requires methodological justification (reasoning)</td>
+          </tr>
+          <tr>
+            <td><strong>Assessment Gap</strong></td>
+            <td>Assessment measures something easier or different than the outcome names</td>
+            <td>Outcome: "Apply ethical principles" → Assessment: Multiple-choice recall of ethical definitions</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>The Backwash Principle</h3>
+      <p><strong>What gets assessed is what gets learned.</strong> Students rationally respond to what is assessed, not necessarily to what is taught. If assessment measures recall, students will prioritize recall—even if teaching emphasizes analysis.</p>
+      <div class="callout callout-tip">
+        <strong>Design implication:</strong>
+        Align your assessment first. Everything else follows.
+      </div>
+    </section>
+
+    <!-- Section 2: Backward Design -->
+    <section class="section" id="backward-design">
+      <h2>2. Wiggins & McTighe's Backward Design (2005)</h2>
+      
+      <h3>The Three-Stage Sequence</h3>
+      <p>Design in this order (even if you don't teach in this order):</p>
+      
+      <h4>Stage 1: Identify Desired Results</h4>
+      <ul>
+        <li>What should students understand and be able to do?</li>
+        <li>What are the big ideas (enduring understandings)?</li>
+        <li>What essential questions will guide inquiry?</li>
+      </ul>
+      <p><strong>Key tool:</strong> The Stage 1 Template includes established goals, essential questions, understandings, and knowledge/skills.</p>
+      
+      <h4>Stage 2: Determine Acceptable Evidence</h4>
+      <ul>
+        <li>What would count as evidence of understanding?</li>
+        <li>What performance tasks would demonstrate the learning?</li>
+        <li>What other evidence do you need (quizzes, observations, reflections)?</li>
+      </ul>
+      <p><strong>Key question:</strong> How will you know students achieved the results? Don't wait until the end to figure this out.</p>
+      
+      <h4>Stage 3: Plan Learning Experiences</h4>
+      <ul>
+        <li>What knowledge and skills do students need?</li>
+        <li>What activities will equip them?</li>
+        <li>How will you sequence for maximum effectiveness?</li>
+      </ul>
+      
+      <h3>Why "Backward" Matters</h3>
+      <p><strong>Forward design (common but problematic):</strong><br>Content → Activities → Assessment → Hope</p>
+      <p><strong>Backward design:</strong><br>Desired Results → Evidence → Learning Experiences → Success</p>
+      <p><strong>The difference:</strong> Forward design asks "What will I teach?" Backward design asks "What will they learn and how will I know?"</p>
+    </section>
+
+    <!-- Section 3: WHERETO -->
+    <section class="section" id="whereto">
+      <h2>3. WHERETO Elements (Stage 3 Learning Plan)</h2>
+      <p>Use this checklist when designing your learning sequence:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Element</th>
+            <th>Question to Ask</th>
+            <th>Design Move</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>W</strong> - Where & Why</td>
+            <td>Do students know where the module is going and what's expected?</td>
+            <td>Share outcomes, essential questions, and assessment criteria up front</td>
+          </tr>
+          <tr>
+            <td><strong>H</strong> - Hook</td>
+            <td>What will hook students' interest from the start?</td>
+            <td>Entry event, provocative question, relevant problem</td>
+          </tr>
+          <tr>
+            <td><strong>E</strong> - Explore & Equip</td>
+            <td>Do students get to explore big ideas and get equipped with needed knowledge/skills?</td>
+            <td>Balance direct instruction with inquiry; provide resources and tools</td>
+          </tr>
+          <tr>
+            <td><strong>R</strong> - Rethink & Revise</td>
+            <td>Can students rethink their work and revise based on feedback?</td>
+            <td>Build in checkpoints, peer review, formative assessment with feedback</td>
+          </tr>
+          <tr>
+            <td><strong>E</strong> - Evaluate</td>
+            <td>Can students self-assess and evaluate their own learning?</td>
+            <td>Rubrics shared early, reflection prompts, self-assessment tools</td>
+          </tr>
+          <tr>
+            <td><strong>T</strong> - Tailored</td>
+            <td>Is the work personalized to different needs, interests, styles?</td>
+            <td>Choice in topics, formats, pace; scaffolding for diverse learners</td>
+          </tr>
+          <tr>
+            <td><strong>O</strong> - Organized</td>
+            <td>Is the sequence organized for maximum engagement and effectiveness?</td>
+            <td>Logical flow, clear transitions, intentional pacing</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 4: Friction -->
+    <section class="section" id="friction">
+      <h2>4. Productive vs. Unproductive Difficulty</h2>
+      
+      <h3>Productive Difficulty (Keep This)</h3>
+      <p>Struggle that develops learning:</p>
+      <ul>
+        <li>Complex case that resists easy resolution</li>
+        <li>Ambiguous scenario requiring judgment</li>
+        <li>Assignment demanding genuine synthesis</li>
+        <li>Cognitive challenge inherent to the discipline</li>
+      </ul>
+      <p><strong>Example:</strong> "Students struggle to determine which statistical test to use" → This is productive; they're learning to make methodological judgments</p>
+      
+      <h3>Unproductive Difficulty (Remove This)</h3>
+      <p>Struggle that wastes cognitive effort:</p>
+      <ul>
+        <li>Unclear instructions</li>
+        <li>Inconsistent navigation</li>
+        <li>Hidden expectations</li>
+        <li>Activities disconnected from assessment</li>
+        <li>Design confusion masquerading as rigor</li>
+      </ul>
+      <p><strong>Example:</strong> "Students struggle because the rubric wasn't shared until after submission" → This is unproductive friction</p>
+      
+      <div class="callout callout-tip">
+        <strong>The Friction Audit Question:</strong>
+        Where are students spending effort that does not develop the thinking this course is trying to build? Those are the friction points to eliminate.
+      </div>
+    </section>
+
+    <!-- Section 5: AI Workflow -->
+    <section class="section" id="ai-workflow">
+      <h2>5. AI as Design Partner Workflow</h2>
+      <p>Use this four-step process when using AI to draft course design elements:</p>
+      <ol>
+        <li><strong>Ask AI to draft</strong>
+          <ul>
+            <li>"Generate three measurable learning outcomes for a module on [topic]"</li>
+            <li>"Create a rubric for assessing [skill/understanding]"</li>
+          </ul>
+        </li>
+        <li><strong>Critique the output for alignment, rigor, and context</strong>
+          <ul>
+            <li>Apply the coherence test: Is the outcome specific enough?</li>
+            <li>Check cognitive demand: Does it match my goals?</li>
+            <li>Test disciplinary fit: Does this work in my context?</li>
+          </ul>
+        </li>
+        <li><strong>Revise using professional judgment</strong>
+          <ul>
+            <li>Change vague verbs ("understand") to action verbs ("apply," "analyze")</li>
+            <li>Add disciplinary specificity</li>
+            <li>Adjust for your students' level and needs</li>
+          </ul>
+        </li>
+        <li><strong>Explain why the final design is stronger</strong>
+          <ul>
+            <li>"I changed X to Y because..."</li>
+            <li>Ground your revision in the frameworks</li>
+            <li>Document your reasoning for future reference</li>
+          </ul>
+        </li>
+      </ol>
+      <p><strong>What AI Can't Do:</strong> Determine what matters in your discipline, understand your students' specific needs, or make pedagogical judgments about what constitutes "good enough" evidence.</p>
+    </section>
+
+    <!-- Section 6: Three Principles -->
+    <section class="section" id="principles">
+      <h2>6. The Three Design Principles</h2>
+      <p>Carry these forward into your redesign:</p>
+      
+      <h3>Principle 1: Start with what students should be able to do</h3>
+      <ul>
+        <li>Not "What content will I cover?"</li>
+        <li>But "What will students be able to demonstrate?"</li>
+        <li>Outcomes name performances, not topics</li>
+      </ul>
+      
+      <h3>Principle 2: Aligned courses require the same kind of thinking at every stage</h3>
+      <ul>
+        <li>Outcome names a cognitive action (analyze)</li>
+        <li>Activities practice that action (analyze cases)</li>
+        <li>Assessment measures that action (analyze a new case)</li>
+        <li><strong>Not identical, but coherent</strong></li>
+      </ul>
+      
+      <h3>Principle 3: Friction that doesn't develop learning should be eliminated</h3>
+      <ul>
+        <li>Distinguish productive challenge from design confusion</li>
+        <li>Remove unnecessary complexity in instructions, navigation, expectations</li>
+        <li>Protect difficulty that builds disciplinary thinking</li>
+      </ul>
+    </section>
+
+    <!-- Section 7: Application Guide -->
+    <section class="section" id="application">
+      <h2>Quick Application Guide</h2>
+      
+      <h3>For Your Discussion Post (Identifying Misalignment)</h3>
+      <ol>
+        <li>Choose a module from your course</li>
+        <li>Apply the coherence test: State outcome, describe activities, name assessment</li>
+        <li>Identify the gap: Outcome gap? Activity gap? Assessment gap?</li>
+        <li>Name the learner impact: What does this cost students?</li>
+      </ol>
+      
+      <h3>For Your Module Blueprint Assignment</h3>
+      <p><strong>Stage 1 (Steps 1-2):</strong> Use Backward Design Stage 1</p>
+      <ul>
+        <li>Describe original module</li>
+        <li>Revise outcomes using coherence test</li>
+        <li>Show AI draft → your revision → rationale</li>
+      </ul>
+      
+      <p><strong>Stage 2 (Step 3):</strong> Create alignment table</p>
+      <ul>
+        <li>Use three-gap framework to diagnose</li>
+        <li>Be honest about where alignment breaks</li>
+      </ul>
+      
+      <p><strong>Stage 3 (Steps 4-6):</strong> Design learning sequence</p>
+      <ul>
+        <li>Use WHERETO as checklist</li>
+        <li>Audit for unproductive difficulty (friction)</li>
+        <li>Defend using one of the three principles</li>
+      </ul>
+    </section>
+
+    <!-- Glossary -->
+    <section class="section" id="glossary">
+      <h2>Key Terms Glossary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Definition</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Constructive Alignment</strong></td>
+            <td>Outcomes, activities, and assessment all require the same kind of thinking</td>
+            <td>Biggs (2014)</td>
+          </tr>
+          <tr>
+            <td><strong>Coherence Test</strong></td>
+            <td>Can you draw a direct line from outcome to assessment?</td>
+            <td>Biggs (2014), paraphrased</td>
+          </tr>
+          <tr>
+            <td><strong>Backward Design</strong></td>
+            <td>Design sequence: Results → Evidence → Experiences</td>
+            <td>Wiggins & McTighe (2005)</td>
+          </tr>
+          <tr>
+            <td><strong>Backwash</strong></td>
+            <td>Assessment shapes what students actually learn, regardless of teaching</td>
+            <td>Biggs (2014)</td>
+          </tr>
+          <tr>
+            <td><strong>Essential Question</strong></td>
+            <td>Open-ended, provocative question that frames inquiry</td>
+            <td>Wiggins & McTighe (2005)</td>
+          </tr>
+          <tr>
+            <td><strong>WHERETO</strong></td>
+            <td>Seven elements of effective learning sequence design</td>
+            <td>Wiggins & McTighe (2005)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Self-Check -->
+    <section class="section" id="self-check">
+      <h2>Self-Check Questions</h2>
+      <p>Before submitting your discussion or blueprint, ask yourself:</p>
+      
+      <h3>Alignment Check</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li>☐ Can I draw a direct line from outcome to assessment?</li>
+        <li>☐ Do activities practice what the assessment measures?</li>
+        <li>☐ Is the cognitive demand consistent across all three?</li>
+      </ul>
+      
+      <h3>Backward Design Check</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li>☐ Did I start with desired results (Stage 1)?</li>
+        <li>☐ Have I specified what counts as evidence (Stage 2)?</li>
+        <li>☐ Are activities designed to produce that evidence (Stage 3)?</li>
+      </ul>
+      
+      <h3>Framework Application Check</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li>☐ Have I explicitly referenced at least one framework from the readings?</li>
+        <li>☐ Can I explain WHY my design choices will work (not just WHAT they are)?</li>
+        <li>☐ Have I used course vocabulary (coherence test, three-gap diagnostic, WHERETO)?</li>
+      </ul>
+      
+      <h3>Professional Judgment Check</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li>☐ If I used AI, have I critically revised its output?</li>
+        <li>☐ Can I justify my revisions using the frameworks?</li>
+        <li>☐ Have I considered my specific students and context?</li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #d0d0c0; font-size: 0.9rem; color: #666;">
+      <p><strong>Remember:</strong> These frameworks are tools for thinking, not recipes to follow rigidly. Use professional judgment to adapt them to your discipline, students, and context. The goal is coherence, not perfection.</p>
+      <p style="margin-top: 1rem;">Last updated: May 15, 2026 | <a href="/edtc501/">Back to EDTC 501</a></p>
+    </div>
+
+  </main>
+
+  <footer style="background: var(--green); color: var(--offwhite); padding: 2rem; text-align: center; margin-top: 3rem;">
+    <p style="margin: 0;">&copy; 2026 Canvas on Tap. Licensed under CC-BY 4.0.</p>
+  </footer>
+
+</body>
+</html>
